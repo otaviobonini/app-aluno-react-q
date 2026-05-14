@@ -1,10 +1,12 @@
-import LoginPage from "./pages/LoginPage"
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 import './assets/style.css'
+import { useState } from 'react'
 function App() {
 
-  
-
+  const [page, setPage] = useState('login')
   return (
+    
     <>
      <div className="container">
 
@@ -16,18 +18,8 @@ function App() {
             </p>
         </div>
 
-        <div className="formulario">
-            <div>
-
-                <h1>Bem-vindo de volta</h1>
-                <p>Por favor, insira suas credenciais para acessar seu painel acadêmico</p>
-
-                <LoginPage></LoginPage>
-                
-                <p className="registre-se">Não tem uma conta? <a href="registro.html">Registre-se agora.</a></p>
-
-            </div>
-        </div>
+        <LoginPage page={page} setPage={setPage}></LoginPage>
+        <RegisterPage page={page} setPage={setPage}></RegisterPage>
 
     </div>
     
